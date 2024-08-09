@@ -43,7 +43,7 @@ public class HomePage {
     public void checkTheUrl() throws InterruptedException {
         driver.get("https://www.universityliving.com/");
         driver.manage().window().maximize();
-        Thread.sleep(4000);
+        Thread.sleep(4500);
 
         // Create an instance of Login_SignUp_Form and call checkURL method
         Login_SignUp_Form loginForm = new Login_SignUp_Form(driver);
