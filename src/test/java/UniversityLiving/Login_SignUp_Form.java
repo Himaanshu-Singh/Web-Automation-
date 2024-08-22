@@ -1,5 +1,6 @@
 package UniversityLiving;
 
+import PageData.Login_SignUp_Locators;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -27,16 +28,15 @@ public class Login_SignUp_Form {
     public void LoginFormData() throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-        // Wait for the 'Login / SignUp' button to be clickable
-        WebElement signupbtn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//div[contains(@class,'flex items-center justify-center gap-2 truncate')])[1]")));
-        signupbtn.click();
+        WebElement loginbtn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(Login_SignUp_Locators.loginbtn)));
+        loginbtn.click();
         Thread.sleep(3000);
 
-        WebElement crossbtn = driver.findElement(By.xpath("//button[@class='z-[2] p-1.5 absolute rounded-full border leading-none outline-none focus:outline-none transition-colors -top-2 -right-2 md:-top-3 md:-right-3 bg-white border-gray-300 hover:bg-gray-100']"));
+        WebElement crossbtn = driver.findElement(By.xpath(Login_SignUp_Locators.crossbtn));
         crossbtn.click();
         Thread.sleep(3000);
 
-        WebElement signupbtn1 = driver.findElement(By.xpath("(//div[contains(@class,'flex items-center justify-center gap-2 truncate')])[1]"));
+        WebElement signupbtn1 = driver.findElement(By.xpath(Login_SignUp_Locators.signupbtn));
         signupbtn1.click();
         Thread.sleep(3000);
 
