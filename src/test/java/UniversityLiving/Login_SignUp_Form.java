@@ -29,24 +29,24 @@ public class Login_SignUp_Form {
 
         WebElement loginbtn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(Login_SignUp_Locators.loginbtn)));
         loginbtn.click();
-        Thread.sleep(3000);
+        Thread.sleep(1000);
 
         WebElement crossbtn = driver.findElement(By.xpath(Login_SignUp_Locators.crossbtn));
         crossbtn.click();
-        Thread.sleep(3000);
+        Thread.sleep(1000);
 
         WebElement signupbtn1 = driver.findElement(By.xpath(Login_SignUp_Locators.signupbtn));
         signupbtn1.click();
-        Thread.sleep(3000);
+        Thread.sleep(1000);
 
         WebElement emailbtn = driver.findElement(By.xpath("//input[@id='email']"));
         emailbtn.click();
         emailbtn.sendKeys("pravin.garg@universityliving.com");
-        Thread.sleep(3000);
+        Thread.sleep(1000);
 
         WebElement submitbtn = driver.findElement(By.xpath("//div[text()='Login']"));
         submitbtn.click();
-        Thread.sleep(3000);
+        Thread.sleep(1000);
 
         WebElement btn1 = driver.findElement(By.xpath("(//input[@name='otp0'])[1]"));
         btn1.sendKeys("5");
@@ -58,15 +58,15 @@ public class Login_SignUp_Form {
         btn4.sendKeys("2");
         WebElement btn5 = driver.findElement(By.xpath("(//input[@name='otp4'])[1]"));
         btn5.sendKeys("1");
-        Thread.sleep(3000);
+        Thread.sleep(1000);
 
         WebElement submitbtn2 = driver.findElement(By.xpath("(//div[text()='Continue'])"));
         submitbtn2.click();
-        Thread.sleep(5000);
+        Thread.sleep(1000);
 
         WebElement crosbtn = driver.findElement(By.xpath("(//*[name()='svg'][@class='w-4 h-4'])[1]"));
         crosbtn.click();
-        Thread.sleep(3000);
+        Thread.sleep(1000);
 
     }
 }

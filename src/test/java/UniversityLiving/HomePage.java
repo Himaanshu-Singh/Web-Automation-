@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import java.time.Duration;
@@ -31,7 +32,7 @@ public class HomePage {
         options.addArguments("--disable-popup-blocking");
 
         driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
     }
 
     @Test
@@ -39,34 +40,39 @@ public class HomePage {
         driver.get("https://www.universityliving.com/");
         driver.manage().window().maximize();
         Thread.sleep(1000);
-
         // Create an instance of Login_SignUp_Form and call checkURL method
+//        JavascriptExecutor js = (JavascriptExecutor) driver;
+//        js.executeScript("window.scrollBy(0, 500);");
+    signUpForm();
+    homePage();
+    searchbarFlag();
+    }
+    @Test
+    public void signUpForm() throws InterruptedException {
         Login_SignUp_Form loginForm = new Login_SignUp_Form(driver);
         loginForm.checkURL();
 
         Login_SignUp_Form loginFormDialog = new Login_SignUp_Form(driver);
         loginFormDialog.LoginFormData();
-
+    }
+    @Test
+    public void homePage() throws InterruptedException {
         HomePageTopBar CheckTopBarElement = new HomePageTopBar(driver);
         CheckTopBarElement.CheckTopBarElements();
 
         HomePage_SearchBar searchbar = new HomePage_SearchBar(driver);
         searchbar.SearchBarCheck();
-
-        Thread.sleep(1000);
-
+    }
+    @Test
+    public void searchbarFlag() throws InterruptedException {
         HomePage_SearchBar flagVerify = new HomePage_SearchBar(driver);
         flagVerify.verifySearchFlagCountries();
 
         HomePage_SearchBar countFlag = new HomePage_SearchBar(driver);
         countFlag.countFlags();
-
-//        JavascriptExecutor js = (JavascriptExecutor) driver;
-//        js.executeScript("window.scrollBy(0, 500);");
-        Thread.sleep(1000);
     }
 
-    @AfterMethod
+    @AfterTest
     public void tearDown() {
         if (driver != null) {
             driver.quit();

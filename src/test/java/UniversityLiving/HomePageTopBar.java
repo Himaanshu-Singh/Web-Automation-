@@ -17,7 +17,7 @@ public class HomePageTopBar { WebDriver driver;
     @Test
     public void CheckTopBarElements() throws InterruptedException {
         WebElement header = driver.findElement(By.xpath("//nav[@class='hidden space-x-7 lg:flex items-stretch']"));
-        Thread.sleep(3000);
+        Thread.sleep(1000);
 
         List<WebElement> elements = header.findElements(By.xpath(".//*"));
         String[] textsToMatch = {"Cost of Living", "Find My Kinda Room", "Services"};
