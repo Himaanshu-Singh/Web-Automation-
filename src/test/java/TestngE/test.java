@@ -1,5 +1,5 @@
 package TestngE;
 
-public class tes {
+public class test {
 
 }
